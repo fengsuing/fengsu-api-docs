@@ -28,7 +28,7 @@ ak、sk鉴权步骤，当采用ak、sk鉴权时，必须携带以下参数
 | 参数 | 类型   | 是否必需 | 描述              |
 |-----------|--------|----------|--------------------------|
 | reqId     | string | YES      | 请求id |
-| timestamp     | string | YES      | 请求时间戳，毫秒 |
+| timestamp     | string | YES      | 请求时间戳，毫秒，有效期过去30秒内 |
 | accessKey     | string | YES      | 访问令牌 |
 | signature     | string | YES      | 签名 |
 
