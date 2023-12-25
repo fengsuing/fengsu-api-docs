@@ -2,7 +2,8 @@
 
 官网：https://fengsu.ing <br>
 文档：https://docs.fengsu.com <br>
-联系我们：mailto:fengsuing@proton.me
+联系我们：mailto:fengsuing@proton.me <br>
+github：https://github.com/fengsuing/fengsu-api-docs
 <hr>
 <hr>
 
