@@ -343,7 +343,7 @@ Content-Type: application/json
 
 | 参数 | 类型   | 是否必需 | 描述              |
 |-----------|--------|----------|--------------------------|
-| amount     | string | YES      | USDT数量 |
+| amount     | string | YES      | USDT数量，最小值10，默认100 |
 
 ### 示例请求
 
