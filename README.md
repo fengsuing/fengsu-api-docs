@@ -16,6 +16,7 @@ github：https://github.com/fengsuing/fengsu-api-docs
 4.匿名，重要信息二次加密，不收集用户隐私信息，基于区块链特性，保护用户隐私<br>
 5.自动化，全程自动化、无感知运行<br>
 6.无控制台，仅需注册一个用户即可快捷方便地使用API进行属于你的二次开发<br>
+7.多重RPC验证，以多重Binance RPC为准，数据准确无误
 <hr>
 
 ## 对接说明
