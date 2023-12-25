@@ -24,6 +24,12 @@ github：https://github.com/fengsuing/fengsu-api-docs
 ### 1
 所列举API除generateKey外，共有必选参数username，仅需传递有效的jwtToken或signature参数即可，无需手动传递username参数，程序会自动解析请求用户<br>
 
+
+接口返回值code:<br>
+200 成功<br>
+400 失败<br>
+500 服务器错误<br>
+
 ### 2
 ak、sk鉴权步骤，当采用ak、sk鉴权时，必须携带以下参数
 | 参数 | 类型   | 是否必需 | 描述              |
