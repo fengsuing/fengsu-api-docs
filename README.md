@@ -1,3 +1,9 @@
+---
+title: 锋速钱包API
+date: 2024-01-10 15:24:59
+tags:
+---
+
 # 锋速 API 文档
 官网：https://fengsu.ing <br>
 文档：https://docs.fengsu.com <br>
@@ -73,9 +79,9 @@ ak、sk鉴权步骤，当采用ak、sk鉴权时，必须携带以下参数
 
 ### 参数
 
-| 参数 | 类型   | 是否必需 | 描述              |
+| 参数 | 类型   | 是否必需 | 描述              | 默认值
 |-----------|--------|----------|--------------------------|
-| netId     | number | YES      | Network ID |
+| netId     | number | YES      | 网络ID | 56
 
 ### 示例请求
 
@@ -85,7 +91,7 @@ Host: api.fengsu.ing
 Content-Type: application/json
 
 {
-  "netId": 123
+  "netId": 56
 }
 ```
 
