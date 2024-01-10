@@ -1,15 +1,19 @@
-# 锋速 API 文档
+---
+title: 锋速钱包API
+date: 2024-01-10 15:24:59
+tags:
+---
 
+# 锋速 API 文档
 官网：https://fengsu.ing <br>
 文档：https://docs.fengsu.com <br>
-联系我们：mailto:fengsuing@proton.me <br>
+联系我们：fengsuing@proton.me <br>
 github：https://github.com/fengsuing/fengsu-api-docs
-<hr>
 <hr>
 
 ## 项目说明
-一：本项目作用于web3行业用户充、提等服务，大大减少了企业、个人开发难度，开箱即用<br>
-二：.项目特点：<br>
+作用于web3行业用户充、提等服务，大大减少了企业、个人开发难度，开箱即用<br>
+
 1.安全，采用了多种不可逆的算法加密重要内容，关键信息设置确保正确<br>
 2.快捷，采用了异步、高并发编码方式提高归集的速度<br>
 3.可扩展，预留了进一步二次开发的空间，今后将接入更多币种、对接更多主链<br>
@@ -19,18 +23,18 @@ github：https://github.com/fengsuing/fengsu-api-docs
 7.多重RPC验证，以多重Binance RPC为准，数据准确无误
 <hr>
 
-## 对接说明
 
-### 1
+## 重要对接说明
+
 所列举API除generateKey外，共有必选参数username，仅需传递有效的jwtToken或signature参数即可，无需手动传递username参数，程序会自动解析请求用户<br>
-
+<hr>
 
 接口返回值code:<br>
 200 成功<br>
 400 失败<br>
 500 服务器错误<br>
+<hr>
 
-### 2
 ak、sk鉴权步骤，当采用ak、sk鉴权时，必须携带以下参数
 | 参数 | 类型   | 是否必需 | 描述              |
 |-----------|--------|----------|--------------------------|
@@ -40,28 +44,27 @@ ak、sk鉴权步骤，当采用ak、sk鉴权时，必须携带以下参数
 | signature     | string | YES      | 签名 |
 
 其中签名(signature)签发规则是:<br>
-1.<p style="color:red">先对timestamp使用sk作为密钥算出timeKey，HmacSHA256(timestamp,security)<p><br>
-2.<p style="color:red">再对timeKey使用ak作为密钥算出akKey，HmacSHA256(timeKey,accessKey)<p><br>
-3.<p style="color:red">最后使用akKey作为密钥算出reqId作为最后的signature，HmacSHA256(reqId,accessKey)<p>
+1.<span style="color:red">先对timestamp使用sk作为密钥算出timeKey，HmacSHA256(timestamp,securityKey)<span><br>
+2.<span style="color:red">再对timeKey使用ak作为密钥算出akKey，HmacSHA256(timeKey,accessKey)<span><br>
+3.<span style="color:red">最后使用akKey作为密钥算出reqId作为最后的signature，HmacSHA256(reqId,accessKey)<span>
 
-### 3
+
 首次注册登陆后请点击生成访问令牌并妥善保管ak、sk
 
 <hr>
-<hr>
 
 ## 重要说明
-1.<p style="color:red">币种及链，本项目作用于BSC链，目前集成了BTC、ETH、USDT的充值监测，后续会视情况免费开通其它热门、主流币种的监测<p><br>
+1.<span style="color:red">币种及链，本项目作用于BSC链，目前集成了BTC、ETH、USDT的充值监测，后续会视情况免费开通其它热门、主流币种的监测<span><br>
 
-2.<p style="color:red">费用，USDT的归集收取归集数量的1%作为手续费，其它币种的归集固定每笔扣除2USDT，从用户个人账户扣除，账户余额为0或者小于0则不可自动归集<p><br>
+2.<span style="color:red">费用，USDT的归集收取归集数量的1%作为手续费，其它币种的归集固定每笔扣除2USDT，从用户个人账户扣除，账户余额为0或者小于0则不可自动归集<span><br>
 
-3.<p style="color:red">链上手续费，由锋速支付，用户无需额外支付<p><br>
+3.<span style="color:red">链上手续费，由锋速支付，用户无需额外支付<span><br>
 
-4.<p style="color:red">USDT达到设定的阀值才会归集并收取手续费，其它币种一旦产生充值后，无论数量多少则立即归集至用户设置的归集地址，若未设置归集地址，则会忽略归集，直到用户设置地址<p><br>
+4.<span style="color:red">USDT达到设定的阀值才会归集并收取手续费，其它币种一旦产生充值后，无论数量多少则立即归集至用户设置的归集地址，若未设置归集地址，则会忽略归集，直到用户设置地址<span><br>
 
-5.<p style="color:red">回调接口地址，需要开发人员设置，锋速检测到充值后会立即向钱包所属用户的回调接口**post**发送本次充值情况，最多三次重试，直至获取到**code:200**，则认为充值情况已成功发送<p><br>
+5.<span style="color:red">回调接口地址，需要开发人员设置，锋速检测到充值后会立即向钱包所属用户的回调接口**post**发送本次充值情况，最多三次重试，直至获取到**code:200**，则认为充值情况已成功发送<span><br>
 
-6.<p style="color:red">上币申请，若需要监测其它币种的充值情况，请发送上币申请至fengsuing@proton.me，上币费用为1000USDT，成功上币后改不退还<p><br>
+6.<span style="color:red">上币申请，若需要监测其它币种的充值情况，请发送上币申请至fengsuing@proton.me，上币费用为1000USDT，成功上币后概不退还<span><br>
 
 
 <hr>
