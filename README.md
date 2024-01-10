@@ -1,7 +1,8 @@
 # 锋速 API 文档
 官网：https://fengsu.ing <br>
-文档：https://docs.fengsu.com <br>
 联系我们：fengsuing@proton.me <br>
+中文API文档：https://blog.fengsu.ing/2024/01/10/feng-su-qian-bao-api/ <br>
+English API doc：https://blog.fengsu.ing/2024/01/10/fengsu-wallet-api/ <br>
 github：https://github.com/fengsuing/fengsu-api-docs
 <hr>
 
@@ -38,9 +39,9 @@ ak、sk鉴权步骤，当采用ak、sk鉴权时，必须携带以下参数
 | signature     | string | YES      | 签名 |
 
 其中签名(signature)签发规则是:<br>
-1.<span style="color:red">先对timestamp使用sk作为密钥算出timeKey，HmacSHA256(timestamp,securityKey)<span><br>
-2.<span style="color:red">再对timeKey使用ak作为密钥算出akKey，HmacSHA256(timeKey,accessKey)<span><br>
-3.<span style="color:red">最后使用akKey作为密钥算出reqId作为最后的signature，HmacSHA256(reqId,accessKey)<span>
+1.<span style="color:#FF6347">先对timestamp使用sk作为密钥算出timeKey，HmacSHA256(timestamp,securityKey)</span><br>
+2.<span style="color:#FF6347">再对timeKey使用ak作为密钥算出akKey，HmacSHA256(timeKey,accessKey)</span><br>
+3.<span style="color:#FF6347">最后使用akKey作为密钥算出reqId作为最后的signature，HmacSHA256(reqId,accessKey)</span>
 
 
 首次注册登陆后请点击生成访问令牌并妥善保管ak、sk
@@ -48,17 +49,17 @@ ak、sk鉴权步骤，当采用ak、sk鉴权时，必须携带以下参数
 <hr>
 
 ## 重要说明
-1.<span style="color:red">币种及链，本项目作用于BSC链，目前集成了BTC、ETH、USDT的充值监测，后续会视情况免费开通其它热门、主流币种的监测<span><br>
+1.<span style="color:#FF6347">币种及链，本项目作用于BSC链，目前集成了BTC、ETH、USDT的充值监测，后续会视情况免费开通其它热门、主流币种的监测</span><br>
 
-2.<span style="color:red">费用，USDT的归集收取归集数量的1%作为手续费，其它币种的归集固定每笔扣除2USDT，从用户个人账户扣除，账户余额为0或者小于0则不可自动归集<span><br>
+2.<span style="color:#FF6347">费用，USDT的归集收取归集数量的1%作为手续费，其它币种的归集固定每笔扣除2USDT，从用户个人账户扣除，账户余额为0或者小于0则不可自动归集</span><br>
 
-3.<span style="color:red">链上手续费，由锋速支付，用户无需额外支付<span><br>
+3.<span style="color:#FF6347">链上手续费，由锋速支付，用户无需额外支付</span><br>
 
-4.<span style="color:red">USDT达到设定的阀值才会归集并收取手续费，其它币种一旦产生充值后，无论数量多少则立即归集至用户设置的归集地址，若未设置归集地址，则会忽略归集，直到用户设置地址<span><br>
+4.<span style="color:#FF6347">USDT达到设定的阀值才会归集并收取手续费，其它币种一旦产生充值后，无论数量多少则立即归集至用户设置的归集地址，若未设置归集地址，则会忽略归集，直到用户设置地址</span><br>
 
-5.<span style="color:red">回调接口地址，需要开发人员设置，锋速检测到充值后会立即向钱包所属用户的回调接口**post**发送本次充值情况，最多三次重试，直至获取到**code:200**，则认为充值情况已成功发送<span><br>
+5.<span style="color:#FF6347">回调接口地址，需要开发人员设置，锋速检测到充值后会立即向钱包所属用户的回调接口**post**发送本次充值情况，最多三次重试，直至获取到**code:200**，则认为充值情况已成功发送</span><br>
 
-6.<span style="color:red">上币申请，若需要监测其它币种的充值情况，请发送上币申请至fengsuing@proton.me，上币费用为1000USDT，成功上币后概不退还<span><br>
+6.<span style="color:#FF6347">上币申请，若需要监测其它币种的充值情况，请发送上币申请至fengsuing@proton.me，上币费用为1000USDT，成功上币后概不退还</span><br>
 
 
 <hr>
@@ -261,7 +262,7 @@ Content-Type: application/json
 
 | 参数 | 类型   | 是否必需 | 描述              |
 |-----------|--------|----------|--------------------------|
-| revoke     | number | NO      | 吊销 |
+| revoke     | number | NO      | 吊销,默认值1 |
 
 ### 示例请求
 
